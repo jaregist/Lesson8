@@ -20,6 +20,11 @@ import Cart from './cart/Cart'
 import StripeConnect from './user/StripeConnect'
 import ShopOrders from './order/ShopOrders'
 import Order from './order/Order'
+import NewAuction from './auction/NewAuction'
+import Auction from './auction/Auction'
+import MyAuctions from './auction/MyAuctions'
+import OpenAuctions from './auction/OpenAuctions'
+import EditAuction from './auction/EditAuction'
 
 const MainRouter = () => {
   return (<div>
@@ -47,6 +52,11 @@ const MainRouter = () => {
         <PrivateRoute path="/seller/:shopId/:productId/edit" component={EditProduct}/>
 
         <Route path="/seller/stripe/connect" component={StripeConnect}/>
+        <PrivateRoute path="/auction/new" component={NewAuction}/>
+        <Route path="/auction/:auctionId" component={Auction}/>
+        <Route path="/auctions/all" component={OpenAuctions}/>
+        <PrivateRoute path="/myauctions" component={MyAuctions}/>
+        <PrivateRoute path="/auction/edit/:auctionId" component={EditAuction}/>
       </Switch>
     </div>)
 }
